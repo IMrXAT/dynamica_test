@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrow Book</title>
+</head>
+<body>
+
+<h2>Borrow Book</h2>
+
+<form action="/library/borrow-book" method="post">
+    <label for="clientId">Client:</label>
+    <select id="clientId" name="clientId" required>
+        <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.getFullName()}"></option>
+    </select><br>
+
+    <label for="isbn">Book Title:</label>
+    <select id="isbn" name="isbn" required>
+        <option th:each="book : ${books}" th:value="${book.isbn}" th:text="${book.title}"></option>
+    </select><br>
+
+    <button type="submit">Borrow Book</button>
+</form>
+
+<!-- Ссылки на страницы с книгами и клиентами -->
+<a href="/book">All Books</a><br>
+<a href="/client">All Clients</a>
+
+</body>
+</html>

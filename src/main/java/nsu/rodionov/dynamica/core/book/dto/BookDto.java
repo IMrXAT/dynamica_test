@@ -1,7 +1,12 @@
 package nsu.rodionov.dynamica.core.book.dto;
 
-public class NewBook {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class BookDto {
     public String bookName;
     public String author;
-    public String ISBN;
+    public String isbn;
 }
