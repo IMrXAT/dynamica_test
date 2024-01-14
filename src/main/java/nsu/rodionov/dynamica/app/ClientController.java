@@ -25,7 +25,8 @@ public class ClientController {
     @GetMapping("")
     public String getAllClients(Model model){
         List<Client> clients = service.getAllClients();
-        model.addAttribute("clients", clients);
+        List<ClientDto> clientDtoList = clientMapper.toListDtoFromListEntity(clients);
+        model.addAttribute("clients", clientDtoList);
         return "clients/list";
     }
     @PostMapping("/new")

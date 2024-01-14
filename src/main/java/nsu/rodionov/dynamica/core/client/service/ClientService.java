@@ -6,7 +6,7 @@ import nsu.rodionov.dynamica.core.client.dto.ClientDto;
 import nsu.rodionov.dynamica.core.client.exception.ClientNotFoundException;
 import nsu.rodionov.dynamica.core.client.mapper.ClientMapper;
 import nsu.rodionov.dynamica.core.client.repository.ClientRepository;
-import nsu.rodionov.dynamica.core.clientbook.dto.ClientBookInfoDto;
+import nsu.rodionov.dynamica.core.clientbook.dto.ClientBorrowBookInfoDto;
 import nsu.rodionov.dynamica.core.clientbook.repository.ClientBookRepository;
 import nsu.rodionov.dynamica.domain.Book;
 import nsu.rodionov.dynamica.domain.Client;
@@ -61,7 +61,7 @@ public class ClientService {
         clientBookRepository.save(clientBook);
     }
 
-    public List<ClientBookInfoDto> findAllClientBooks(){
+    public List<ClientBorrowBookInfoDto> findAllClientBooks(){
         return clientBookRepository.findAllClientBooks();
     }
 }

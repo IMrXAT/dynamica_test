@@ -25,7 +25,8 @@ public class BooksController {
     @GetMapping("")
     public String getAllBooks(Model model){
         List<Book> books = service.getAllBooks();
-        model.addAttribute("books", books);
+        List<BookDto> bookDtoList = bookMapper.toListDtoFromListEntity(books);
+        model.addAttribute("books", bookDtoList);
         return "books/list";
     }
 

@@ -37,8 +37,8 @@ public class BookService {
         if (bookDto.getAuthor() != null){
             book.setAuthor(bookDto.getAuthor());
         }
-        if (bookDto.getBookName() != null){
-            book.setTitle(bookDto.getBookName());
+        if (bookDto.getTitle() != null){
+            book.setTitle(bookDto.getTitle());
         }
     }
 

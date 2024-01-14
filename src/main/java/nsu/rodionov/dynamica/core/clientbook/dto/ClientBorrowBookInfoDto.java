@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import java.time.LocalDate;
 
 @AllArgsConstructor
-public class ClientBookInfoDto {
+public class ClientBorrowBookInfoDto {
     public String firstName;
     public String lastName;
     public String patronymic;

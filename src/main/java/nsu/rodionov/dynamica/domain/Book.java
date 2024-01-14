@@ -18,10 +18,10 @@ public class Book {
     @Id
     String isbn;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     String title;
 
-    @Column(name = "author")
+    @Column(name = "author", nullable = false)
     String author;
 
     @OneToMany(mappedBy = "book")
