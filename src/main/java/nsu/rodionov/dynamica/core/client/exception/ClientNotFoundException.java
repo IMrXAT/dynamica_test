@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class ClientNotFoundException extends RuntimeException{
+public class ClientNotFoundException extends RuntimeException {
     private String message;
     private HttpStatus status;
 

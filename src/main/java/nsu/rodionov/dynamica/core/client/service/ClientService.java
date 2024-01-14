@@ -34,9 +34,10 @@ public class ClientService {
         return repository.findAll();
     }
 
-    public Client getClientById(Long id){
+    public Client getClientById(Long id) {
         return repository.findById(id).orElseThrow(() -> new ClientNotFoundException("client with id " + id + " not found"));
     }
+
     public void addClient(Client newClient) {
         repository.save(newClient);
     }
@@ -61,7 +62,7 @@ public class ClientService {
         clientBookRepository.save(clientBook);
     }
 
-    public List<ClientBorrowBookInfoDto> findAllClientBooks(){
+    public List<ClientBorrowBookInfoDto> findAllClientBooks() {
         return clientBookRepository.findAllClientBooks();
     }
 }

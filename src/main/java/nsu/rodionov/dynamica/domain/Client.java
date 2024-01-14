@@ -33,7 +33,7 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<ClientBook> receivedBooks;
 
-    public String getFullName(){
+    public String getFullName() {
         StringBuilder sb = new StringBuilder();
         if (lastName != null) sb.append(lastName).append(" ");
         if (firstName != null) sb.append(firstName).append(" ");

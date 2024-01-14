@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class ClientMappingException extends RuntimeException{
+public class ClientMappingException extends RuntimeException {
     private final String message;
     private final HttpStatus status;
 

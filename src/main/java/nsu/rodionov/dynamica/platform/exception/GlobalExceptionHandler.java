@@ -16,24 +16,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(BookNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> handleBookNotFoundException(BookNotFoundException exception){
+    public ResponseEntity<String> handleBookNotFoundException(BookNotFoundException exception) {
         return new ResponseEntity<>(exception.getMessage(), exception.getStatus());
     }
+
     @ExceptionHandler(BookMappingException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleBookMappingException(BookMappingException exception){
+    public ResponseEntity<String> handleBookMappingException(BookMappingException exception) {
         return new ResponseEntity<>(exception.getMessage(), exception.getStatus());
     }
+
     @ExceptionHandler(ClientNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> handleClientNotFoundException(ClientNotFoundException exception){
+    public ResponseEntity<String> handleClientNotFoundException(ClientNotFoundException exception) {
         return new ResponseEntity<>(exception.getMessage(), exception.getStatus());
     }
+
     @ExceptionHandler(ClientMappingException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleClientMappingException(ClientMappingException exception){
+    public ResponseEntity<String> handleClientMappingException(ClientMappingException exception) {
         return new ResponseEntity<>(exception.getMessage(), exception.getStatus());
     }
-
-
 }

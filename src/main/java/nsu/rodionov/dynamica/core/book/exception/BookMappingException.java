@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class BookMappingException extends RuntimeException{
+public class BookMappingException extends RuntimeException {
     private final String message;
     private final HttpStatus status;
 

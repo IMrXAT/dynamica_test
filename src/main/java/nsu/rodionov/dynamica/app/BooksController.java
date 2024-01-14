@@ -6,7 +6,10 @@ import nsu.rodionov.dynamica.core.book.service.BookService;
 import nsu.rodionov.dynamica.domain.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -23,7 +26,7 @@ public class BooksController {
     }
 
     @GetMapping("")
-    public String getAllBooks(Model model){
+    public String getAllBooks(Model model) {
         List<Book> books = service.getAllBooks();
         List<BookDto> bookDtoList = bookMapper.toListDtoFromListEntity(books);
         model.addAttribute("books", bookDtoList);
@@ -31,14 +34,14 @@ public class BooksController {
     }
 
     @PostMapping("/new")
-    public String addBook(@ModelAttribute BookDto bookDtoInfo, Model model){
+    public String addBook(@ModelAttribute BookDto bookDtoInfo, Model model) {
         Book newBook = bookMapper.toNewEntity(bookDtoInfo);
         service.addBook(newBook);
         return "redirect:/book";
     }
 
     @PostMapping("/update")
-    public String updateBook(Model model, @ModelAttribute BookDto bookDto){
+    public String updateBook(Model model, @ModelAttribute BookDto bookDto) {
         service.updateBook(bookDto.getIsbn(), bookDto);
         return "redirect:/book";
     }

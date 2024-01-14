@@ -33,11 +33,11 @@ public class BookService {
         repository.save(bookToUpdate);
     }
 
-    private void updateBookInfo(Book book, BookDto bookDto){
-        if (bookDto.getAuthor() != null){
+    private void updateBookInfo(Book book, BookDto bookDto) {
+        if (bookDto.getAuthor() != null) {
             book.setAuthor(bookDto.getAuthor());
         }
-        if (bookDto.getTitle() != null){
+        if (bookDto.getTitle() != null) {
             book.setTitle(bookDto.getTitle());
         }
     }

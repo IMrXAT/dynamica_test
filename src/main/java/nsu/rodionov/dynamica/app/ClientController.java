@@ -7,7 +7,10 @@ import nsu.rodionov.dynamica.core.client.service.ClientService;
 import nsu.rodionov.dynamica.domain.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -22,21 +25,24 @@ public class ClientController {
         this.service = service;
         this.clientMapper = clientMapper;
     }
+
     @GetMapping("")
-    public String getAllClients(Model model){
+    public String getAllClients(Model model) {
         List<Client> clients = service.getAllClients();
         List<ClientDto> clientDtoList = clientMapper.toListDtoFromListEntity(clients);
         model.addAttribute("clients", clientDtoList);
         return "clients/list";
     }
+
     @PostMapping("/new")
-    public String addClient(@ModelAttribute ClientDto clientDtoInfo, Model model){
+    public String addClient(@ModelAttribute ClientDto clientDtoInfo, Model model) {
         Client newClient = clientMapper.toNewEntity(clientDtoInfo);
         service.addClient(newClient);
         return getAllClients(model);
     }
+
     @PostMapping("/update")
-    public String updateClient(Model model, @ModelAttribute ClientDto clientDto){
+    public String updateClient(Model model, @ModelAttribute ClientDto clientDto) {
         service.updateClient(clientDto.getId(), clientDto);
         return getAllClients(model);
     }
